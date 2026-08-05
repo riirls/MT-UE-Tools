@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.riirls.mtue.tools">
+
+    <uses-sdk android:minSdkVersion="26" android:targetSdkVersion="33" />
+
+    <application
+        android:label="MT-UE-Tools"
+        android:allowBackup="true">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
+            <intent-filter>
+                <action android:name="bin.mt.plugin.action.PLUGIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data android:name="bin.mt.plugin.name" android:value="MT-UE-Tools" />
+            <meta-data android:name="bin.mt.plugin.description" android:value="UE resources analysis tools for MT Manager" />
+            <meta-data android:name="bin.mt.plugin.version" android:value="1" />
+
+        </activity>
+
+    </application>
+
+</manifest>
