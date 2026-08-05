@@ -141,13 +141,24 @@ public class MainActivity extends AppCompatActivity {
         tv.setText(message);
         tv.setTextIsSelectable(true);
 
-        new AlertDialog.Builder(this)
+        AlertDialog.Builder builder = new AlertDialog.Builder(this)
                 .setTitle(title)
                 .setView(tv)
                 .setPositiveButton("OK", (dialog, which) -> {
                     if (finishOnOk) finish();
                 })
-                .setCancelable(true)
-                .show();
+                .setCancelable(true);
+
+        // Add a Keys button to open KeysActivity, keeping UI consistent with MT Manager
+        builder.setNeutralButton("Keys", (dialog, which) -> {
+            try {
+                Intent it = new Intent(this, KeysActivity.class);
+                startActivity(it);
+            } catch (Exception e) {
+                Log.e(TAG, "Open KeysActivity failed", e);
+            }
+        });
+
+        builder.show();
     }
 }
